@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import NumberContainer from '../Components/NumberContainer';
 import Card from '../Components/Card';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const generateRandomNumber = (min, max, exclude) => {
     min = Math.ceil(min);
@@ -40,7 +41,7 @@ const GameScreen = props => {
         return;
         }
 
-        if (direction === 'lower' ) {
+        if ( direction === 'lower' ) {
             currentHigh.current = currentGuess;
         }
         else {
@@ -56,9 +57,17 @@ const GameScreen = props => {
             <Text> Opponent's Guess </Text>
             <NumberContainer> {currentGuess} </NumberContainer>
         
-            <Card style={styles.buttoncontainer}>
-                <Button color={Colors.primary} title="LOWER" onPress={chooseLowerOrGreater.bind(this, 'lower')}/>
-                <Button color={Colors.primary} title="GREATER" onPress={chooseLowerOrGreater.bind(this, 'greater')}/>   
+            <Card style={styles.buttoncontainer}> 
+                <Button 
+                color={Colors.primary} 
+                title="LOWER" 
+                onPress={chooseLowerOrGreater.bind(this, 'lower')} 
+                />    
+                <Button 
+                color={Colors.primary} 
+                title="GREATER" 
+                onPress={chooseLowerOrGreater.bind(this, 'greater')}
+                />   
             </Card>
         </View>
     );
